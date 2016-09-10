@@ -1,0 +1,21 @@
+<head>
+  <script async defer
+        src=
+        "https://maps.googleapis.com/maps/api/js?key=AIzaSyBmCWMVKVJvNyUrCwP6yIwLApM9qFVpu2c&libraries=places,drawing,geometry&v=3&callback=initMap">
+    </script>
+</head>
+<p id="search-query">
+    <strong>Your Entry:</strong> <%= @search.entry %>
+</p>
+<table id="results-table">
+  <tr>
+    <th> Locations </th>
+    <tr>
+      <% @businesses.each do |business| %>
+      <tr>
+        <td class="result-name"><%= business.name %></td>
+        <td class="result-address"><%= business.location.address %></td>
+      </tr>
+      <%end%>
+    </table>
+<div id="map"></div>

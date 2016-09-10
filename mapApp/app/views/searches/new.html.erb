@@ -1,0 +1,35 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Permanent+Marker">
+</head>
+<div id="search-page">
+  <div id="title-container">
+    <h1 id="its_lit_title"> It's Lit </h1>
+  </div>
+  <%= form_for @search, url: searches_path do |f| %>
+
+  <% if @search.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@search.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @search.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div id="search-box-container">
+      <p id="search-container">
+        <%= f.label :Address %><br>
+        <%= f.text_field :entry, :id => 'textbox' %>
+      </p>
+
+      <p>
+        <%= f.submit "New Search", :id => 'submit-button'%>
+      </p>
+    <% end %>
+      <%= link_to 'Search History', searches_path, :class => 'search-history-button' %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<h3 id="title"> searches index page </h3>
+<table>
+  <tr>
+    <th id="show-alert">Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @searches.each do |search| %>
+    <tr>
+      <td><%= search.entry %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'search', new_search_path %>
